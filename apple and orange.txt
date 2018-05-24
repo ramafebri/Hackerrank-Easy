@@ -1,0 +1,49 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the countApplesAndOranges function below.
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int s = scanner.nextInt();
+        int t = scanner.nextInt();
+        
+        int a = scanner.nextInt(); //location of apple
+        int b = scanner.nextInt(); //location of orange
+
+        int m = scanner.nextInt();  //apple
+        int n = scanner.nextInt();  //orange
+        
+        int totalapple = 0;
+        int totalorange = 0;
+
+        int[] apple = new int[m];
+        
+        for (int i = 0; i < m; i++) {
+            apple[i] = scanner.nextInt();
+            if(a+apple[i]>=s && a+apple[i]<=t){
+                totalapple ++;
+            }
+        }
+
+        int[] orange = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            orange[i] = scanner.nextInt();
+            if(b+orange[i]>=s && b+orange[i]<=t){
+                totalorange ++;
+            }
+        }
+        System.out.println(totalapple);
+        System.out.println(totalorange);
+
+        scanner.close();
+    }
+}

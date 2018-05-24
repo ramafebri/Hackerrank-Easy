@@ -1,0 +1,40 @@
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    /*
+     * Complete the timeConversion function below.
+     */
+    private static final Scanner scan = new Scanner(System.in);
+
+    public static void main(String[] args) throws IOException {
+        String inputtime = scan.nextLine();
+        String [] time= inputtime.split(":");
+        String hours = time[0];
+        String minute= time[1];
+        String second= time[2].substring(0,2);
+        
+        int temphours;
+        if (time[2].substring(2,4).equalsIgnoreCase("PM"))
+        {
+            if (Integer.parseInt(hours) < 12)
+            {
+                temphours = Integer.parseInt(hours);
+                temphours +=12;
+                hours = Integer.toString(temphours);
+            }
+        }
+        if (time[2].substring(2,4).equalsIgnoreCase("AM"))
+        {
+            if (Integer.parseInt(hours) == 12)
+            {
+                hours = "00";
+            }
+        }
+        System.out.println(hours + ":" + minute + ":" + second);
+    }
+}
